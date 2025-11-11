@@ -1,0 +1,99 @@
+:root{
+  --bg: #ffffff;          /* 전체 배경 */
+  --text: #6b6d71;        /* 기본 글씨 */
+  --card: #f5e6e8;        /* 카드(하얀 박스) 배경 */
+  --card-border: #e5e7eb; /* 카드 테두리 */
+  --input-bg: #d4bed0;    /* 입력창 배경 */
+  --input-text: #323436;  /* 입력창 글씨 */
+  --input-border: #d4bed0;/* 입력창 테두리 */
+  --btn-bg: #788881;      /* 추가 버튼 배경 */
+  --btn-text: #ffffff;    /* 추가 버튼 글씨 */
+  --chip-bg: #d2d7e5;     /* 카테고리 칩 배경 */
+  --chip-text: #35353c;   /* 칩 글씨 */
+  --content-width: 760px;
+}
+
+/* 기본 */
+*{ box-sizing:border-box; }
+html,body,#root{ height:100%; }
+body{ margin:0; background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,Arial; }
+
+.page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 32px 16px;
+}
+
+/* 안쪽 컨테이너 폭 */
+.container{
+  width: min(var(--content-width), 100%);
+  margin: 0 auto;           
+}
+/* 제목 */
+.title{ font-size: 38px; margin: 0 0 16px; }
+
+/* 카드 공통 */
+.card{
+  background:var(--card);
+  color:#111827;
+  border:1px solid var(--card-border);
+  border-radius:16px;
+  padding:16px;
+  box-shadow:0 4px 14px rgba(0,0,0,.06);
+}
+
+/* 폼 */
+.form{ margin-top: 8px; }
+.row{ display:grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap:12px; 
+      margin-bottom:12px; 
+  }
+.label{ display:flex; flex-direction:column; gap:6px; font-size:16px; color:6b6d71;text-indent: 8px; }
+
+.input{
+  padding:10px 12px;
+  border:1px solid var(--input-border);
+  border-radius:10px;
+  outline:none;
+  background:var(--input-bg);
+  color:var(--input-text);
+}
+.input::placeholder{ color:#9aa3b2; }
+.input:focus{ border-color:#7b7ef7; box-shadow:0 0 0 4px rgba(99,102,241,.15); }
+
+/* 버튼 */
+.actions{ margin-top: 6px; }
+.actions.right{ display:flex; justify-content:flex-end; }
+.btn{
+  display:inline-block; border:none; padding: 10px 16px; border-radius:10px; cursor:pointer;
+  font-weight:500; font-size:15px;
+}
+.btn.primary{ background:var(--btn-bg); color:var(--btn-text); }
+.btn.primary:hover{ filter:brightness(1.06); }
+
+/* 빈 상태 */
+.empty{ color:#797f89; padding:12px 2px; margin-top: 8px; }
+
+/* 리스트 */
+.grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap:14px; margin-top:16px; }
+.book{ position:relative; }
+.book-title{ margin:0 0 6px; font-size:18px; color:#111827; }
+.meta{ margin:2px 0; color:#374151; font-size:14px; }
+.chip{ display:inline-block; margin-top:6px; font-size:12px; padding:4px 8px; border-radius:999px; background:var(--chip-bg); color:var(--chip-text); }
+
+/* 삭제 버튼 */
+.delete{
+  position:absolute; right:10px; top:10px;
+  border:1px solid #ad7582; background:#ad7582; color:#ffffff;
+  border-radius:999px; padding:4px 10px; font-size:12px; cursor:pointer;
+}
+.delete:hover{ border:1px solid #ffffff; background:#ffffff; color: #6f6767;}
+
+/* 반응형 */
+@media (max-width: 640px){
+  .row{ grid-template-columns:1fr; }
+  .title{ font-size: 32px; }
+}
