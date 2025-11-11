@@ -1,0 +1,200 @@
+/* 빈티지 서점 테마 */
+/* by 오민석 ver. */
+
+:root {
+  --bg: #f9f4ef;
+  --paper: #fffaf4;
+  --ink: #3c2f2f;
+  --muted: #7c6f66;
+  --accent: #b45f04;
+  --accent-light: #f0c987;
+  --border: #e1d7cc;
+  --shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  --font-serif: "Georgia", "Nanum Myeongjo", serif;
+  --font-sans: "Pretendard", "Noto Sans KR", sans-serif;
+}
+
+/* 전체 페이지 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 40px;
+}
+
+/* 메인 컨테이너 */
+.container {
+  width: 100%;
+  max-width: 860px;
+  padding: 0 20px 80px;
+}
+
+/* 제목 */
+h1 {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: var(--accent);
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  background: var(--accent-light);
+  margin: 8px auto 0;
+}
+
+/* 폼 */
+.form {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 32px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+input,
+select {
+  background: #fffdf8;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 15px;
+  color: var(--ink);
+  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+}
+
+input:focus,
+select:focus {
+  border-color: var(--accent);
+  outline: none;
+  background: #fff9f2;
+  box-shadow: 0 0 0 2px rgba(180, 95, 4, 0.2);
+}
+
+/* 버튼 */
+.btn {
+  margin-top: 16px;
+  background: var(--accent);
+  color: #fffaf3;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  font-family: var(--font-sans);
+}
+
+.btn:hover {
+  background: #9c4f03;
+}
+
+/* 에러 메시지 */
+.error {
+  color: #d33;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* 도서 카드 레이아웃 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+  justify-items: center;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* 삭제 버튼 (x) */
+.delete {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.delete:hover {
+  color: #c0392b;
+}
+
+/* 카드 내부 텍스트 */
+.card h3 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin: 4px 0 10px;
+}
+
+.card p {
+  font-size: 14.5px;
+  color: var(--muted);
+  margin: 4px 0;
+}
+
+.card p strong {
+  color: var(--ink);
+}
+
+/* 비어있을 때 */
+.empty {
+  text-align: center;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 30px;
+  font-size: 15px;
+}
